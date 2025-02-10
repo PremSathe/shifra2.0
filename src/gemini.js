@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 let apikey = "AIzaSyDkolUEmY5Vzb7pHuhrAy4YjlbGLRNJUXI";
 
 import {
@@ -17,7 +18,7 @@ const generationConfig = {
   temperature: 1,
   topP: 0.95,
   topK: 40,
-  maxOutputTokens: 8192,
+  maxOutputTokens: 20, //8192
   responseMimeType: "text/plain",
 };
 
@@ -28,7 +29,7 @@ async function run(prompt) {
   });
 
   const result = await chatSession.sendMessage(prompt);
-  console.log(result.response.text());
+  return result.response.text();
 }
 
-export default run();
+export default run;
