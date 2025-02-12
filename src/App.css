@@ -20,7 +20,7 @@ span {
 }
 
 button {
-  margin-top: 15PX;
+  margin-top: 15px;
   width: 160px;
   height: 40px;
   display: flex;
@@ -32,4 +32,27 @@ button {
   border: none;
   background-color: rgb(79, 224, 234);
   box-shadow: 2px 2px 50px rgb(79, 224, 234);
+}
+
+#speak {
+  width: 100px;
+}
+
+p {
+  font-size: 1.5vmax;
+  color: white;
+}
+
+.response {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#aigif{
+  width: 50vh;
+  height: 100px;
+
 }

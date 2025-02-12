@@ -5,22 +5,32 @@ import "./App.css";
 import va from "./assets/ai.png";
 import { CiMicrophoneOn } from "react-icons/ci";
 import { datacontext } from "./context/userContext";
-
+import speakimg from "./assets/speak.gif";
+import aigif from "./assets/aiVoice.gif";
 function App() {
-  let { recognition, speaking, setSpeaking } = useContext(datacontext);
+  let { recognition, speaking, setSpeaking, prompt, setPrompt, response, setResponse } = useContext(datacontext);
 
   return (
     <div className="main">
       <img src={va} alt="" id="shifra" />
-      <span> I'm Shifra 2.0,Your Advanced Virtual Assistant</span>
+      <span> I'm Siri,Your Advanced Virtual Assistant</span>
       {!speaking ?
-       <button onClick={() => {
-        setSpeaking(true)
-        recognition.start()
-      }}>
-        Click here <CiMicrophoneOn /></button> 
+        <button onClick={() => {
+          setPrompt("listening...")
+          setSpeaking(true)
+          setResponse(false)
+          recognition.start()
+        }}>Click here <CiMicrophoneOn /></button>
         :
-         true}
+        <div className="response">
+          {!response ?
+            <img src={speakimg} alt="" id="speak" />
+            :
+            <img src={aigif} alt="" id="aigif" />
+          }
+          <p>{prompt}</p>
+        </div>
+      }
 
     </div>
   );
